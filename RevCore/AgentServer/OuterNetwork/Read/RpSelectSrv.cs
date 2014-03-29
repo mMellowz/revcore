@@ -20,6 +20,10 @@ namespace AgentServer.OuterNetwork.Read
 
         public override void Process()
         {
+            // todo @key server lock
+            //if(IsNoAtKey && ServerIsUseAtKey)
+            //    new SpAuth(Connection.Account, LoginResponse.NoAtKey).Send(Connection);
+            //else
             new SpSelectSrv(svid, chid).Send(Connection);
         }
     }

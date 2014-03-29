@@ -7,7 +7,8 @@ namespace AgentServer.OuterNetwork.Write
     {
         success,
         Banned,
-        WrongInfo
+        WrongInfo,
+        NoAtKey,
     }
 
     public class SpAuth : OuterNetworkSendPacket
@@ -37,6 +38,9 @@ namespace AgentServer.OuterNetwork.Write
                 case LoginResponse.WrongInfo:
                     WriteH(writer, 1);
                     WriteH(writer, 3);
+                    break;
+                case LoginResponse.NoAtKey:
+                    WriteD(writer, 36);
                     break;
             }
         }
